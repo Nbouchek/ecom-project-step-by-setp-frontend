@@ -1,15 +1,19 @@
 <div class="main-content">
   <div class="section-content section-content-p30">
     <h4>Category: {{ currentCategoryName }}</h4>
-    <hr>
+    <hr/>
     <div class="container-fluid">
       <div class="row">
         <div *ngFor="let tempProduct of products" class="col-md-3">
           <div class="product-box">
-            <a routerLink="/products/{{tempProduct.imageUrl}}">
-              <img alt="" class="img-responsive" src="{{ tempProduct.imageUrl }}"/>
+            <a routerLink="/products/{{ tempProduct.id }}">
+              <img
+                alt=""
+                class="img-responsive"
+                src="{{ tempProduct.imageUrl }}"
+              />
             </a>
-            <a routerLink="/products/{{tempProduct.name}}">
+            <a routerLink="/products/{{ tempProduct.id }}">
               <h1>{{ tempProduct.name }}</h1>
             </a>
             <div class="price">
@@ -20,7 +24,11 @@
         </div>
 
         <!-- if products empty then display a message  -->
-        <div *ngIf="products?.length == 0" class=" alert alert-warning col-md-12" role="alert">
+        <div
+          *ngIf="products?.length == 0"
+          class="alert alert-warning col-md-12"
+          role="alert"
+        >
           No products found.
         </div>
       </div>
