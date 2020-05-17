@@ -32,6 +32,27 @@
           No products found.
         </div>
       </div>
+
+      <!-- begin fotter -->
+      <div class="footer-pgaination">
+        <div class="row">
+          <div class="col-md-6"></div>
+          <div class="col-md-6">
+            <div class="row">
+              <div class="col-md-9" style="padding-left: 30%;">
+                <ngb-pagination
+                  (pageChange)="listProducts()"
+                  [(page)]="thePageNumber"
+                  [collectionSize]="theTotalElements"
+                  [pageSize]="thePageSize"
+                >
+                </ngb-pagination>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end fotter -->
     </div>
   </div>
 </div>
