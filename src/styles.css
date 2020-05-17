@@ -716,14 +716,20 @@ table.table.table-bordered th{
  * ----------------------------
  */
 
-.price{
-  margin:15px 0 0;
-  font-weight:800;
-  color:#0da8e4
+.price {
+  margin: 15px 0 0;
+  font-weight: 800;
+  color: #0da8e4
 }
-.detail-section{
-  margin-top:60px
+
+.detail-section {
+  margin-top: 60px
 }
+
+.detail-img {
+  width: 30%;
+}
+
 /**/
 
 /*
@@ -732,8 +738,8 @@ table.table.table-bordered th{
  * ----------------------------
  */
 
-.btn-info{
-  color:#fff;
+.btn-info {
+  color: #fff;
   background-color:#0da8e4!important;
   border-color:#0da8e4!important
 }
