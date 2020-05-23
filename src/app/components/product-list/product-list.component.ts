@@ -68,7 +68,7 @@ export class ProductListComponent implements OnInit {
     }
 
     //
-    // Check if we have a diffrent category id
+    // Check if we have a diffrent category id than previous
     // Note: Angular will resuse the component if it is currently being used
 
     // if we have a different category id than previous
@@ -84,11 +84,13 @@ export class ProductListComponent implements OnInit {
     );
 
     // now get the products for the given category
-    this.productService.getProductListPaginate(
-      this.thePageNumber - 1,
-      this.thePageSize,
-      this.currentCategoryId
-    ).subscribe(this.processResult());
+    this.productService
+      .getProductListPaginate(
+        this.thePageNumber - 1,
+        this.thePageSize,
+        this.currentCategoryId
+      )
+      .subscribe(this.processResult());
   }
 
   processResult() {
