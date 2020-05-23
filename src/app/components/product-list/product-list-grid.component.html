@@ -42,18 +42,17 @@
               <div class="col-md-9" style="padding-left: 30%;">
                 <ngb-pagination
                   [(page)]="thePageNumber"
-                  [collectionSize]="theTotalElements"
                   [pageSize]="thePageSize"
+                  [collectionSize]="theTotalElements"
                   [maxSize]="5"
                   [boundaryLinks]="true"
                   (pageChange)="listProducts()"
                 >
                 </ngb-pagination>
               </div>
-
               <!-- begin dropdown menu -->
               <div class="col-md-3 mt-2" style="text-align: right;">
-                <span class="mr-2">Page Size</span>
+                <span class="mr-1">Page Size</span>
                 <select (change)="updatePageSize($event.target.value)">
                   <option>2</option>
                   <option selected="true">5</option>
