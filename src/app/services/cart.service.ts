@@ -17,12 +17,9 @@ export class CartService {
 
     if (this.cartItems.length > 0) {
       // find the item in th cart based on item id
-      for (const iterator of this.cartItems) {
-        if (iterator.id === theCartItem.id) {
-          existingCartItem = iterator;
-          break;
-        }
-      }
+      existingCartItem = this.cartItems.find(
+        (theItem) => theItem.id === theCartItem.id
+      );
 
       // check if we found it
       alreadyExistsInCart = existingCartItem !== undefined;
@@ -61,12 +58,18 @@ export class CartService {
     for (const iterator of this.cartItems) {
       const subTotalPrice = iterator.quantity * iterator.unitPrice;
       console.log(
-        `\tname = ${iterator.name}, \n\tquantity = ${iterator.quantity}, \n\tunitPrice = ${iterator.unitPrice}, \n\tsubTotalPrice = ${subTotalPrice.toFixed(2)}`
+        `\tname = ${iterator.name}, \n\tquantity = ${
+          iterator.quantity
+        }, \n\tunitPrice = ${
+          iterator.unitPrice
+        }, \n\tsubTotalPrice = ${subTotalPrice.toFixed(2)}`
       );
     }
 
     console.log(
-      `\n\ttotalPrice: ${totalPriceValue.toFixed(2)}, \n\ttotalQuantity: ${totalQuantityValue}`
+      `\n\ttotalPrice: ${totalPriceValue.toFixed(
+        2
+      )}, \n\ttotalQuantity: ${totalQuantityValue}`
     );
     console.log("-----");
   }
