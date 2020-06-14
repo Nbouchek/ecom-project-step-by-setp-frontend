@@ -61,12 +61,10 @@ export class CheckoutComponent implements OnInit {
         this.creditCardMonths = data;
       });
     // populate credit card years
-    this.luv2ShopFormService
-      .getCreditCardYears()
-      .subscribe((data) => {
-        console.log("Retrieve credit card years: " + JSON.stringify(data));
-        this.creditCardMonths = data;
-      });
+    this.luv2ShopFormService.getCreditCardYears().subscribe((data) => {
+      console.log("Retrieve credit card years: " + JSON.stringify(data));
+      this.creditCardYears = data;
+    });
   }
 
   copyShippingAddressToBillingAddress(event) {
