@@ -15,7 +15,11 @@ import { CartDetailsComponent } from "./components/cart-details/cart-details.com
 import { CheckoutComponent } from "./components/checkout/checkout.component";
 import { ReactiveFormsModule } from "@angular/forms";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { MatSliderModule } from '@angular/material/slider';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatTableModule} from '@angular/material/table';
+import {MatSortModule} from '@angular/material/sort';
+import {MatPaginatorModule} from '@angular/material/paginator';
 const routes: Routes = [
   { path: "checkout", component: CheckoutComponent },
   { path: "cart-details", component: CartDetailsComponent },
@@ -46,6 +50,11 @@ const routes: Routes = [
     NgbModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    MatSliderModule,
+    MatCheckboxModule,
+    MatTableModule,
+    MatSortModule,
+    MatPaginatorModule,
   ],
   providers: [ProductService],
   bootstrap: [AppComponent],
