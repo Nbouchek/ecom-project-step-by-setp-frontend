@@ -23,7 +23,7 @@ export class Luv2ShopFormService {
     let data: number[] = [];
 
     // build an array for "Month" dropdown list
-    // - start at current year and loop until
+    // - start at current year and loop for next 10 years
     const startYear: number = new Date().getFullYear(),
       endYear: number = startYear + 10;
 
