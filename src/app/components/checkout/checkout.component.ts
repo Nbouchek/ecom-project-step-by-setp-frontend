@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder } from "@angular/forms";
 import { Luv2ShopFormService } from "src/app/services/luv2-shop-form.service";
+import { Country } from "src/app/common/country";
+import { State } from "src/app/common/state";
 
 @Component({
   selector: "app-checkout",
@@ -14,6 +16,10 @@ export class CheckoutComponent implements OnInit {
 
   creditCardYears: number[] = [];
   creditCardMonths: number[] = [];
+
+  countries: Country[] = [];
+  states: State[] = [];
+
   constructor(
     private formBuilder: FormBuilder,
     private luv2ShopFormService: Luv2ShopFormService
@@ -60,10 +66,17 @@ export class CheckoutComponent implements OnInit {
         console.log("Retrieve credit card months: " + JSON.stringify(data));
         this.creditCardMonths = data;
       });
+
     // populate credit card years
     this.luv2ShopFormService.getCreditCardYears().subscribe((data) => {
       console.log("Retrieve credit card years: " + JSON.stringify(data));
       this.creditCardYears = data;
+    });
+
+    // populate countries
+    this.luv2ShopFormService.getCountries().subscribe((data) => {
+      console.log("Retrieved countries: " + JSON.stringify(data));
+      this.countries = data;
     });
   }
 
@@ -87,9 +100,13 @@ export class CheckoutComponent implements OnInit {
   }
 
   handleMonthsAndYears() {
-    const creditCardFormGroup = this.checkoutFormGroup.get("creditCardInformation");
+    const creditCardFormGroup = this.checkoutFormGroup.get(
+      "creditCardInformation"
+    );
     const currentYear: number = new Date().getFullYear();
-    const selectedYear: number = Number(creditCardFormGroup.value.expirationYear);
+    const selectedYear: number = Number(
+      creditCardFormGroup.value.expirationYear
+    );
 
     // if the current year quals the selected year, then start with the current month
     let startMonth: number;
