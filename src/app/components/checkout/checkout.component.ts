@@ -8,6 +8,7 @@ import {
 import { Luv2ShopFormService } from "src/app/services/luv2-shop-form.service";
 import { Country } from "src/app/common/country";
 import { State } from "src/app/common/state";
+import { Luv2ShopValidators } from "src/app/validators/luv2-shop-validators";
 
 @Component({
   selector: "app-checkout",
@@ -39,10 +40,12 @@ export class CheckoutComponent implements OnInit {
         firstName: new FormControl("", [
           Validators.required,
           Validators.minLength(2),
+          Luv2ShopValidators.notOnlyWhiteSpace
         ]),
         lastName: new FormControl("", [
           Validators.required,
           Validators.minLength(2),
+          Luv2ShopValidators.notOnlyWhiteSpace
         ]),
         email: new FormControl("", [
           Validators.required,
