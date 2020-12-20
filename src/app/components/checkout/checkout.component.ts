@@ -90,11 +90,21 @@ export class CheckoutComponent implements OnInit {
           Luv2ShopValidators.notOnlyWhiteSpace,
         ]),
       }),
-      creditCardInformation: this.formBuilder.group({
-        cardType: [""],
-        nameOnCard: [""],
-        cardNumber: [""],
-        securityCode: [""],
+      creditCard: this.formBuilder.group({
+        cardType: new FormControl("", [Validators.required]),
+        nameOnCard: new FormControl("", [
+          Validators.required,
+          Validators.minLength(2),
+          Luv2ShopValidators.notOnlyWhiteSpace,
+        ]),
+        cardNumber: new FormControl("", [
+          Validators.required,
+          Validators.pattern("[0-9]{16}"),
+        ]),
+        securityCode: new FormControl("", [
+          Validators.required,
+          Validators.pattern("[0-9]{3}"),
+        ]),
         expirationMonth: [""],
         expirationYear: [""],
       }),
@@ -176,6 +186,22 @@ export class CheckoutComponent implements OnInit {
     return this.checkoutFormGroup.get("billingAddress.zipCode");
   }
 
+  get creditCardType() {
+    return this.checkoutFormGroup.get("creditCard.cardType");
+  }
+
+  get creditCardNameOnCard() {
+    return this.checkoutFormGroup.get("creditCard.nameOnCard");
+  }
+
+  get creditCardNumber() {
+    return this.checkoutFormGroup.get("creditCard.cardNumber");
+  }
+
+  get creditCardSecurityCode() {
+    return this.checkoutFormGroup.get("creditCard.securityCode");
+  }
+
   copyShippingAddressToBillingAddress(event) {
     if (event.target.checked) {
       this.checkoutFormGroup.controls.billingAddress.setValue(
@@ -215,9 +241,7 @@ export class CheckoutComponent implements OnInit {
   }
 
   handleMonthsAndYears() {
-    const creditCardFormGroup = this.checkoutFormGroup.get(
-      "creditCardInformation"
-    );
+    const creditCardFormGroup = this.checkoutFormGroup.get("creditCard");
     const currentYear: number = new Date().getFullYear();
     const selectedYear: number = Number(
       creditCardFormGroup.value.expirationYear
