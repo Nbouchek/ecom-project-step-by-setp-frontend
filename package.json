@@ -27,6 +27,7 @@
     "bootstrap": "^4.4.1",
     "http-proxy": "^1.18.1",
     "rxjs": "~6.6.3",
+    "set-default-browser": "^1.1.1",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.3"
   },
