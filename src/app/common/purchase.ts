@@ -7,6 +7,6 @@ export class Purchase {
   customer: Customer;
   shippingAddress: Address;
   billingAddress: Address;
-  oder: Order;
+  order: Order;
   orderItems: OrderItem[];
 }
